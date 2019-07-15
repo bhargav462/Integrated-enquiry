@@ -67,23 +67,23 @@ app.post('/thank', urlencodedParser, (req, res) => {
           for(let i=0;i<body.trains.length;i++)
           {
             if(body.trains[i].days[6].code === 'Y')
-{ 
-  ava = true;          
-   train_List  += '<tr>'+ '<td>' + body.trains[i].number + '</td>' + '<td>' + body.trains[i].from_station.name + '(' + body.trains[i].src_departure_time + ')' +  '</td>' + '<td>' + body.trains[i].to_station.name  + '(' + body.trains[i].dest_arrival_time + ')'  +'</td>' + '<td>' + body.trains[i].name + '</td> ' + '<td>' + body.trains[i].travel_time  +'</td>' + '</tr>'; 
-}          }
-        }else{
-          day--;
-          //console.log('check ');
-          for(let i=0;i<body.trains.length;i++)
-          {
-            if(body.trains[i].days[day].runs === 'Y')
-{ 
-  ava = true;          
-   train_List  += '<tr>'+ '<td>' + body.trains[i].number + '</td>' + '<td>' + body.trains[i].from_station.name + '(' + body.trains[i].src_departure_time + ')' +  '</td>' + '<td>' + body.trains[i].to_station.name  + '(' + body.trains[i].dest_arrival_time + ')'  +'</td>' + '<td>' + body.trains[i].name + '</td> ' + '<td>' + body.trains[i].travel_time  +'</td>' + '</tr>'; 
-}         
-           }
-        }
-        if(ava === flase)
+              { 
+                ava = true;          
+                train_List  += '<tr>'+ '<td>' + body.trains[i].number + '</td>' + '<td>' + body.trains[i].from_station.name + '(' + body.trains[i].src_departure_time + ')' +  '</td>' + '<td>' + body.trains[i].to_station.name  + '(' + body.trains[i].dest_arrival_time + ')'  +'</td>' + '<td>' + body.trains[i].name + '</td> ' + '<td>' + body.trains[i].travel_time  +'</td>' + '</tr>'; 
+              }          }
+          }else{
+            day--;
+            //console.log('check ');
+            for(let i=0;i<body.trains.length;i++)
+            {
+              if(body.trains[i].days[day].runs === 'Y')
+                { 
+                  ava = true;          
+                  train_List  += '<tr>'+ '<td>' + body.trains[i].number + '</td>' + '<td>' + body.trains[i].from_station.name + '(' + body.trains[i].src_departure_time + ')' +  '</td>' + '<td>' + body.trains[i].to_station.name  + '(' + body.trains[i].dest_arrival_time + ')'  +'</td>' + '<td>' + body.trains[i].name + '</td> ' + '<td>' + body.trains[i].travel_time  +'</td>' + '</tr>'; 
+                }         
+            }
+          }
+        if(ava === false)
         train_List = 'No trains found'
       }else{
           train_List = 'An error has occured';
