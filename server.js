@@ -20,6 +20,7 @@ app.get('/',(req,res) => {
 });
 // console.log('ch');
 app.post('/thank', urlencodedParser, (req, res) => {
+  var ava = false;
   // console.log(req.body.dates);
   // console.log(req.body.source);
   // console.log(req.body.dest);
@@ -66,18 +67,26 @@ app.post('/thank', urlencodedParser, (req, res) => {
           for(let i=0;i<body.trains.length;i++)
           {
             if(body.trains[i].days[6].code === 'Y')
-            train_List  += '<tr>'+ '<td>' + body.trains[i].number + '</td>' + '<td>' + body.trains[i].from_station.name + '(' + body.trains[i].src_departure_time + ')' +  '</td>' + '<td>' + body.trains[i].to_station.name  + '(' + body.trains[i].dest_arrival_time + ')'  +'</td>' + '<td>' + body.trains[i].name + '</td> ' + '<td>' + body.trains[i].travel_time  +'</td>' + '</tr>'; 
-          }
+{ 
+  ava = true;          
+   train_List  += '<tr>'+ '<td>' + body.trains[i].number + '</td>' + '<td>' + body.trains[i].from_station.name + '(' + body.trains[i].src_departure_time + ')' +  '</td>' + '<td>' + body.trains[i].to_station.name  + '(' + body.trains[i].dest_arrival_time + ')'  +'</td>' + '<td>' + body.trains[i].name + '</td> ' + '<td>' + body.trains[i].travel_time  +'</td>' + '</tr>'; 
+}          }
         }else{
           day--;
           //console.log('check ');
           for(let i=0;i<body.trains.length;i++)
           {
             if(body.trains[i].days[day].runs === 'Y')
-            train_List  += '<tr>'+ '<td>' + body.trains[i].number + '</td>' + '<td>' + body.trains[i].from_station.name + '(' + body.trains[i].src_departure_time + ')' +  '</td>' + '<td>' + body.trains[i].to_station.name  + '(' + body.trains[i].dest_arrival_time + ')'  +'</td>' + '<td>' + body.trains[i].name + '</td> ' + '<td>' + body.trains[i].travel_time  +'</td>' + '</tr>'; 
-          }
-        }}else{
-          train_List = 'No trains found ';
+{ 
+  ava = true;          
+   train_List  += '<tr>'+ '<td>' + body.trains[i].number + '</td>' + '<td>' + body.trains[i].from_station.name + '(' + body.trains[i].src_departure_time + ')' +  '</td>' + '<td>' + body.trains[i].to_station.name  + '(' + body.trains[i].dest_arrival_time + ')'  +'</td>' + '<td>' + body.trains[i].name + '</td> ' + '<td>' + body.trains[i].travel_time  +'</td>' + '</tr>'; 
+}         
+           }
+        }
+        if(ava === flase)
+        train_List = 'No trains found'
+      }else{
+          train_List = 'An error has occured';
           //console.log('np trains found');
         }
       }
@@ -92,3 +101,5 @@ app.post('/thank', urlencodedParser, (req, res) => {
 app.listen(port,() => {
     console.log(`Server is up on port ${port}`);
 });
+
+//https://sensationnel-moliere-25779.herokuapp.com/

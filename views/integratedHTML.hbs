@@ -66,13 +66,13 @@
    <form method='post' action='/thank'>
     <p id=demo></p>
 <p>Enter the source station: </p>
-<input list='List' name='source' id='search' size='28' required placeholder="source station">
+<input list='List' name='source' id='search' size='20' required placeholder="source station">
 <datalist id='List'>
 </datalist>
 <p id="swar"></p>
 {{!-- <input type='text' name='source' > --}}
 <p>Enter the destination</p>
-<input list='List' name='dest' id='asearch' size='28' required placeholder="destination station">
+<input list='List' name='dest' id='asearch' size='20' required placeholder="destination station">
 <datalist id='List'>
 </datalist>
 <p id="dwar"></p>
@@ -138,11 +138,11 @@ var checking = () =>
   </div>
   <div id="tabs-2">
  <p>Enter the source airport name</p>
-        <input list="sList" id="sid" type="text" placeholder="Source" size='28' autofocus required>
+        <input list="sList" id="sid" type="text" placeholder="Source" size='20' autofocus required>
         <datalist id="sList">
         </datalist>
         <p>Enter the Destination airport name</p>
-        <input list="dList" id="did" type="text" placeholder="Destination" size='28' required>
+        <input list="dList" id="did" type="text" placeholder="Destination" size='20' required>
         <datalist id="dList"></datalist>
         <p>Enter the date</p>
         <input type="date" required><br><br>
