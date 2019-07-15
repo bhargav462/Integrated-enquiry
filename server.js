@@ -3,6 +3,7 @@ const hbs = require('hbs');
 const request = require('request');
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: true });
+const port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -88,6 +89,6 @@ app.post('/thank', urlencodedParser, (req, res) => {
    });
 
 
-app.listen(3001,() => {
-    console.log('Server is up on port 3000');
+app.listen(port,() => {
+    console.log(`Server is up on port ${port}`);
 });
